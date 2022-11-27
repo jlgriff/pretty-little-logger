@@ -1,0 +1,36 @@
+{
+  "name": "pretty-little-logger",
+  "version": "1.0.0",
+  "author": "John Griffith",
+  "description": "A library for generating prettified, color-coded console logs. Comes with options to automatically add additional context to the logs.",
+  "keywords": [
+    "logging",
+    "typescript",
+    "node",
+    "express",
+    "react",
+    "reactjs"
+  ],
+  "homepage": "https://github.com/jlgriff/pretty-little-logger",
+  "bugs": {
+    "url": "https://github.com/jlgriff/pretty-little-logger/issues"
+  },
+  "license": "MIT",
+  "files": ["package.json", "README.md", "/dist"],
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  }
+}
