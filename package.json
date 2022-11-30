@@ -20,7 +20,8 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "npx tsc"
+    "build": "npm run clean && npx tsc",
+    "clean": "rm -rf dist"
   },
   "dependencies": {},
   "devDependencies": {
