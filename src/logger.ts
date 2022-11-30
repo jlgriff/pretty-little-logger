@@ -62,25 +62,26 @@ const parseStackTrace = (): LogStack => {
 /**
  * Generates a standardized formatted log using the given log-level's corresponding logger
  *
+ * @param message - string to be logged or object to be stringified
  * @param level - logging level/severity
- * @param message - string to be logged
  * @param showLogLocation - whether to include in the log the filename & line number of where the logger was called (e.g. '| index.js:1 |')
  * @param showStackTrace - whether to include in the log the full stack trace
  */
 const logPretty = (
+  message: string | object = '',
   level: 'trace' | 'debug' | 'info' | 'warn' | 'error' = 'info',
-  message: string = '',
   showLogLocation: boolean = false,
   showStackTrace: boolean = false,
 ) => {
   const { logger, color } = getLogger(level);
 
+  const messageString = typeof message === 'object' ? JSON.stringify(message) : message;
   const logStack = (showLogLocation || showStackTrace) ? parseStackTrace() : undefined;
   const logLevel = `${level.padEnd(5, ' ')} | `;
   const logLocation = showLogLocation ? `${logStack?.filename}:${logStack?.lineNum} | ` : '';
   const stackTrace = showStackTrace ? `\n${logStack?.stackTrace}` : '';
 
-  logger(color, `${logLevel}${logLocation}${message}${stackTrace}`);
+  logger(color, `${logLevel}${logLocation}${messageString}${stackTrace}`);
 };
 
 export default logPretty;
